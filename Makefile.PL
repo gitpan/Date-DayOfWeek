@@ -3,6 +3,9 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME'		=> 'Date::DayOfWeek',
-    'VERSION_FROM'	=> 'DayOfWeek.pm', # finds $VERSION
-    'PREREQ_PM'		=> { Date::Leapyear => 0 }, # e.g., Module::Name => 1.1
+    'VERSION_FROM'	=> 'Date/DayOfWeek.pm', # finds $VERSION
+    'PREREQ_PM'		=> { 
+        Date::Leapyear => 0,
+        Test::More => 0,
+        },
 );

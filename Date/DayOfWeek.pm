@@ -1,18 +1,18 @@
-# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.17 2001/06/11 01:49:05 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/Date/DayOfWeek.pm,v 1.18 2001/08/03 04:24:39 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
 use Date::Leapyear qw();
 
-require 5.005_62;
 use strict;
 use warnings;
 
 require Exporter;
-our @ISA = qw(Exporter);
+use vars qw( @ISA @EXPORT $VERSION );
+@ISA = qw(Exporter);
 
-our @EXPORT = qw( dayofweek );
-our $VERSION = ( qw'$Revision: 1.17 $' )[1];
+@EXPORT = qw( dayofweek );
+$VERSION = ( qw'$Revision: 1.18 $' )[1];
 
 =head1 NAME
 
@@ -67,6 +67,11 @@ sub dayofweek {
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.18  2001/08/03 04:24:39  rbowen
+    Alter locations of modules - moved into Date subdir.
+    Added to MANIFEST
+    No longer reqiure 5.005_62. Not sure why that was there.
+
     Revision 1.17  2001/06/11 01:49:05  rbowen
     Additional docs. Added Sneeze.pm
 

@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/DayOfWeek/Birthday.pm,v 1.2 2001/06/11 00:03:39 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/Date/DayOfWeek/Birthday.pm,v 1.2 2001/06/11 00:03:39 rbowen Exp $
 
 package Date::DayOfWeek::Birthday;
 use Date::DayOfWeek qw();

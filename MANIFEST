@@ -1,14 +1,15 @@
-Doomsday.pm
-DayOfWeek.pm
-DayOfWeek/Birthday.pm
-DayOfWeek/Nails.pm
-DayOfWeek/Sneeze.pm
+Date/Doomsday.pm
+Date/DayOfWeek.pm
+Date/DayOfWeek/Birthday.pm
+Date/DayOfWeek/Nails.pm
+Date/DayOfWeek/Sneeze.pm
+
 MANIFEST
 Makefile.PL
 Readme
+LICENSE
 
-t/00load_dayofweek.t
-t/01load_doomsday.t
-t/02doomsday.t
-t/03dayofweek.t
+t/00doomsday.t
+t/01dayofweek.t
+t/02birthday.t
 
