@@ -6,7 +6,7 @@ lib/Date/DayOfWeek/Sneeze.pm
 
 MANIFEST
 Makefile.PL
-Readme
+README
 LICENSE
 
 t/00doomsday.t

@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek/Nails.pm,v 1.3 2001/08/25 21:28:15 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek/Nails.pm,v 1.4 2001/12/22 01:26:24 rbowen Exp $
 
 package Date::DayOfWeek::Nails;
 use Date::DayOfWeek qw();
@@ -10,7 +10,7 @@ use vars qw(@ISA @EXPORT $VERSION);
 @ISA = qw(Exporter);
 
 @EXPORT = qw( nails );
-$VERSION = ( qw'$Revision: 1.3 $' )[1];
+$VERSION = ( qw'$Revision: 1.4 $' )[1];
 
 =head1 NAME
 
@@ -28,7 +28,7 @@ Date::DayOfWeek::Nails - Cut your nails on a Friday, cut them for woe ...
  Cut your nails on a Wednesday, cut them for health.
  Cut your nails on a Thursday, cut them for wealth.
  Cut your nails on a Friday, cut them for woe.
- Cut your nails on a Friday, a journey to go.
+ Cut your nails on a Saturday, a journey to go.
  Cut your nails on a Sunday, you cut them for evil,
  For all the next week you'll be ruled by the devil.
 
@@ -62,7 +62,7 @@ sub nails {
  "Cut your nails on a Wednesday, cut them for health.",
  "Cut your nails on a Thursday, cut them for wealth.",
  "Cut your nails on a Friday, cut them for woe.",
- "Cut your nails on a Friday, a journey to go.",
+ "Cut your nails on a Saturday, a journey to go.",
     );
 
     return $days[$dayofweek];

@@ -9,3 +9,10 @@ WriteMakefile(
         Test::More => 0,
         },
 );
+
+sub MY::postamble {
+    package MY;
+    "\npredist: all\n" .
+    "\tcvs2cl -r -b -t -f Changes\n";
+}
+

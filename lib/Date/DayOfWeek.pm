@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek.pm,v 1.20 2001/10/10 02:35:07 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek.pm,v 1.21 2001/12/22 01:28:54 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
@@ -10,7 +10,9 @@ use vars qw( @ISA @EXPORT $VERSION );
 @ISA = qw(Exporter);
 
 @EXPORT = qw( dayofweek );
-$VERSION = ( qw'$Revision: 1.20 $' )[1];
+$VERSION = ( qw'$Revision: 1.21 $' )[1];
+
+# Docs {{{
 
 =head1 NAME
 
@@ -26,6 +28,12 @@ Date::DayOfWeek - Determine the day of the week for any date.
 Calculates the day of the week for any date in the Gregorian calendar
 (1563 and following).
 Based on the Doomsday algorithm of John Conway.
+
+=cut
+
+#}}}
+
+# sub dayofweek {{{
 
 =head1 dayofweek
 
@@ -58,13 +66,31 @@ sub dayofweek {
     
     # So, the day of the week should be doomsday, plus however far on we are
     return ($doomsday + $on) % 7;
-}
+} # }}}
 
-1;
+=head1 AUTHOR
+
+Rich Bowen (rbowen@rcbowen.com)
+
+=head1 See Also
+
+Date::Doomsday
+
+Date::DayOfWeek::Birthday, Date::DayOfWeek::Nails, and
+Date::DayOfWeek::Birthday
+
+Date::Christmas
+
+=cut
+
+# CVS history {{{
 
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.21  2001/12/22 01:28:54  rbowen
+    Documentation updates.
+
     Revision 1.20  2001/10/10 02:35:07  rbowen
     Bug reported by Francois Claveau.
 
@@ -109,18 +135,9 @@ sub dayofweek {
     Revision 1.10  2001/05/27 03:13:57  rbowen
     Add DayOfWeek to repository.
 
-=head1 AUTHOR
-
-Rich Bowen (rbowen@rcbowen.com)
-
-=head1 See Also
-
-Date::Doomsday
-
-Date::DayOfWeek::Birthday, Date::DayOfWeek::Nails, and
-Date::DayOfWeek::Birthday
-
-Date::Christmas
-
 =cut
+
+# }}}
+
+1;
 

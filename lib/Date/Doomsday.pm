@@ -7,7 +7,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 @EXPORT = qw( doomsday );
-$VERSION = ( qw'$Revision: 1.10 $' )[1];
+$VERSION = ( qw'$Revision: 1.11 $' )[1];
 
 =head1 NAME
 
@@ -17,6 +17,10 @@ Date::Doomsday - Determine doomsday for a given year
 
   use Date::Doomsday;
   $doomsday = doomsday(1945);
+
+=head1 VERSION
+
+$Revision: 1.11 $
 
 =head1 DESCRIPTION
 
@@ -32,7 +36,9 @@ year given. If no year is specified, the current year is assumed.
 
 =cut
 
-sub doomsday {#{{{
+# sub doomsday {{{
+
+sub doomsday {
     my $year = shift;
 
     $year = ( localtime(time) )[5] unless $year;
@@ -55,52 +61,7 @@ sub doomsday {#{{{
     return $doomsday % 7;
 }#}}}
 
-1;
-
-#{{{ CVS History
-=head1 HISTORY
-
-    $Log: Doomsday.pm,v $
-    Revision 1.10  2001/08/25 21:28:14  rbowen
-    Moved files to lib directory
-    Removed 5.6 dependencies.
-
-    Revision 1.9  2001/06/10 18:46:03  rbowen
-    Moved isleap functionality into Date::Leapyear. Added Birthday.pm and
-    Nails.pm as examples of the strange things that people believe - or
-    believed a few hundred years ago, with regard to days of the week.
-
-    Revision 1.8  2001/06/06 02:29:14  rbowen
-    Added some more doomsday tests. Removed dayofweek tests that referred
-    to years before the Gregorian calendar. Extended the range of
-    Doomsday.pm indefinately into the future. And a small bug fix in
-    DayOfWeek.pm
-
-    Revision 1.7  2001/05/31 02:07:37  rbowen
-    Added test suite. Updated documentation to tell more about Doomsday.
-
-    Revision 1.6  2001/05/27 03:48:27  rbowen
-    Changed package to DayOfWeek rather than Doomsday, since that's the most
-    useful feature here. Updated documenation, manifest, and makefile to reflect
-    this.
-
-    Revision 1.5  2001/05/27 03:02:08  rbowen
-    Corrected documentation. Added Readme
-
-    Revision 1.4  2001/05/27 02:49:20  rbowen
-    Documentation.
-
-    Revision 1.3  2001/05/27 02:46:02  rbowen
-    And now it works from 1500 through 2699.
-
-    Revision 1.2  2001/05/27 02:37:05  rbowen
-    Got it working for dates in the 1900's
-
-    Revision 1.1.1.1  2001/05/27 02:21:27  rbowen
-    Start date-doomsday cvs repository
-
-=cut
-#}}}
+# Docs {{{
 
 =head1 AUTHOR
 
@@ -156,4 +117,8 @@ http://quasar.as.utexas.edu/BillInfo/doomsday.html
 http://www.cst.cmich.edu/users/graha1sw/Pub/Doomsday/Doomsday.html
 
 =cut
+
+# }}}
+
+1;
 
