@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/DayOfWeek/Nails.pm,v 1.1 2001/06/10 18:46:08 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/DayOfWeek/Nails.pm,v 1.2 2001/06/11 00:03:39 rbowen Exp $
 
 package Date::DayOfWeek::Nails;
 use Date::DayOfWeek qw();
@@ -11,7 +11,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our @EXPORT = qw( nails );
-our $VERSION = ( qw'$Revision: 1.1 $' )[1];
+our $VERSION = ( qw'$Revision: 1.2 $' )[1];
 
 =head1 NAME
 
@@ -80,6 +80,9 @@ Rich Bowen ( rbowen@rcbowen.com )
 Date::Doomsday
 
 Date::DayOfWeek
+
+The Oxford Companion to the Year (Bonnie Blackburn and Leofranc
+Holford-Strevens. Oxford Press.)
 
 =cut
 

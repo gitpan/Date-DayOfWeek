@@ -2,6 +2,7 @@ Doomsday.pm
 DayOfWeek.pm
 DayOfWeek/Birthday.pm
 DayOfWeek/Nails.pm
+DayOfWeek/Sneeze.pm
 MANIFEST
 Makefile.PL
 Readme

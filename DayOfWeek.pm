@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.16 2001/06/10 18:46:03 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.17 2001/06/11 01:49:05 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
@@ -12,7 +12,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our @EXPORT = qw( dayofweek );
-our $VERSION = ( qw'$Revision: 1.16 $' )[1];
+our $VERSION = ( qw'$Revision: 1.17 $' )[1];
 
 =head1 NAME
 
@@ -25,6 +25,8 @@ Date::DayOfWeek - Determine the day of the week for any date.
 
 =head1 DESCRIPTION
 
+Calculates the day of the week for any date in the Gregorian calendar
+(1563 and following).
 Based on the Doomsday algorithm of John Conway.
 
 =head1 dayofweek
@@ -65,6 +67,9 @@ sub dayofweek {
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.17  2001/06/11 01:49:05  rbowen
+    Additional docs. Added Sneeze.pm
+
     Revision 1.16  2001/06/10 18:46:03  rbowen
     Moved isleap functionality into Date::Leapyear. Added Birthday.pm and
     Nails.pm as examples of the strange things that people believe - or
@@ -101,6 +106,11 @@ Rich Bowen (rbowen@rcbowen.com)
 =head1 See Also
 
 Date::Doomsday
+
+Date::DayOfWeek::Birthday, Date::DayOfWeek::Nails, and
+Date::DayOfWeek::Birthday
+
+Date::Christmas
 
 =cut
 
