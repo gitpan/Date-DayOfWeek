@@ -8,7 +8,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our @EXPORT = qw( doomsday );
-our $VERSION = ( qw'$Revision: 1.6 $' )[1];
+our $VERSION = ( qw'$Revision: 1.8 $' )[1];
 
 =head1 NAME
 
@@ -33,23 +33,17 @@ year given.
 
 =cut
 
-sub doomsday {
+sub doomsday {#{{{
     my $year = shift;
 
-    # All your base ...
-    my %base = ( 1500 => 3, 1600 => 2, 1700 => 0,
-                 1800 => 5, 1900 => 3, 2000 => 2,
-                 2100 => 0, 2200 => 5, 2300 => 3,
-                 2400 => 2, 2500 => 0, 2600 => 5 );
+    if ($year < 1583) {
+        warn "The Gregorian calendar did not come into use until 
+1583. Your date predates the usefulness of this algorithm."
+    }
 
     my $century = $year - ( $year % 100 );
 
-    if ($century < 1500 || $century > 2600) {
-        warn "Date is outside the range that I know about.";
-        exit();
-    }
-
-    my $base = $base{$century};
+    my $base = ( 3, 2, 0, 5 )[ ( ($century - 1500)/100 )%4 ];
 
     my $twelves = int ( ( $year - $century )/12);
     my $rem = ( $year - $century ) % 12;
@@ -58,13 +52,23 @@ sub doomsday {
     my $doomsday = $base + ($twelves + $rem + $fours)%7;
 
     return $doomsday % 7;
-}
+}#}}}
 
 1;
 
+#{{{ CVS History
 =head1 HISTORY
 
     $Log: Doomsday.pm,v $
+    Revision 1.8  2001/06/06 02:29:14  rbowen
+    Added some more doomsday tests. Removed dayofweek tests that referred
+    to years before the Gregorian calendar. Extended the range of
+    Doomsday.pm indefinately into the future. And a small bug fix in
+    DayOfWeek.pm
+
+    Revision 1.7  2001/05/31 02:07:37  rbowen
+    Added test suite. Updated documentation to tell more about Doomsday.
+
     Revision 1.6  2001/05/27 03:48:27  rbowen
     Changed package to DayOfWeek rather than Doomsday, since that's the most
     useful feature here. Updated documenation, manifest, and makefile to reflect
@@ -85,6 +89,9 @@ sub doomsday {
     Revision 1.1.1.1  2001/05/27 02:21:27  rbowen
     Start date-doomsday cvs repository
 
+=cut
+#}}}
+
 =head1 AUTHOR
 
 Rich Bowen (rbowen@rcbowen.com)
@@ -94,12 +101,43 @@ Rich Bowen (rbowen@rcbowen.com)
 Doomsday is a simple way to find out what day of the week any event occurs, in
 any year. It was invented by Dr John Horton Conway.
 
-This module is not terribly useful at this time, since it only tells you what
-doomsday is, rather than actually calculating the weekday of a particular
-date. That will come in a little while.
+In conjunction with Date::DayOfWeek, it can calculate the day of the
+week for any date since the beginning of the Gregorian calendar.
 
-See the following web pages for more explanation of doomsday and why it is
-cool.
+The concept of doomsday is simple: If you know this special day
+(called "doomsday") for a given year, you can figure out the day of
+the week for any other day that year by a few simple calculations that
+you can do in your head, thus:
+
+The last day of February is doomsday. That's the 28th most years, and
+the 29th in leap years.
+
+The Nth day of the Nth month is doomsday, for even values of N. That
+is, 4/4 (April 4), 6/6, 8/8, 10/10, and 12/12, are all doomsdays.
+(That is, if doomsday is Wednesday, as it is in 2001, then October 10
+will also be a Wednesday.)
+
+For odd months, after March, the following mnemonic will help you
+remember: "I work from 9-5 at the 7-11." (For those of you not living
+in the USA, you might like to know that 7-11 is the name of a chain of
+stores.) What this means is that 9/5 (September 5) and 5/9 (May 9) are
+both doomsday. Likewise, 7/11 and 11/7 are doomsday.
+
+The 0th day of march is always doomsday.
+
+The last day of January is doomsday in most years, and the day after
+tha last day of January (think January 32nd) is doomsday in leap
+years.
+
+So, if you know the above, and you want to figure out what day of the
+week a particular day is, you do something like the following:
+
+When is Christmas in 2001? Doomsday in 2001 is Wednesday. So December
+12 is Wednesday. Count forward 2 week, and find that December 26 is a
+Wednesday. So Christmas (December 25) is a Tuesday.
+
+For more information about the origins and mathematics surrounding
+doomsday, see the following web sites:
 
 http://www.interlog.com/~r937/doomsday.html
 

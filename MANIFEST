@@ -2,5 +2,10 @@ Doomsday.pm
 DayOfWeek.pm
 MANIFEST
 Makefile.PL
-test.pl
 Readme
+
+t/00load_dayofweek.t
+t/01load_doomsday.t
+t/02doomsday.t
+t/03dayofweek.t
+

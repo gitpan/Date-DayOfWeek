@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.13 2001/05/27 19:34:46 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.15 2001/06/06 02:29:14 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
@@ -11,7 +11,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our @EXPORT = qw( dayofweek );
-our $VERSION = ( qw'$Revision: 1.13 $' )[1];
+our $VERSION = ( qw'$Revision: 1.15 $' )[1];
 
 =head1 NAME
 
@@ -47,37 +47,12 @@ sub dayofweek {
     my $doomsday = Date::Doomsday::doomsday( $year );
 
     # And when is doomsday this month?
-   
-    my $baseday;
 
-    if ( $month == 2 ) {
-        $baseday = isleap($year) ? 29 : 28;
-
-    # For even months, the Nth day of the Nth month is doomsday
-    } elsif ( $month % 2 == 0 ) {
-        $baseday = $month;
-
-    # I work from 9-5 at the 7-11
-    } elsif ( $month == 5 ) {
-        $baseday = 9;
-    } elsif ( $month == 9 ) {
-        $baseday = 5;
-    } elsif ( $month == 7 ) {
-        $baseday = 11;
-    } elsif ( $month == 11 ) {
-        $baseday = 7;
-
-    # march
-    } elsif ( $month == 3 ) {
-        $baseday = 7;
-
-    # January
-    } elsif ( $month == 1 ) {
-        $baseday = isleap($year) ? 32 : 31;
-    }
+    my @base = ( 0, 0, 7, 4, 9, 6, 11, 8, 5, 10, 7, 12 );
+    @base[1,2] = isleap($year) ? (32,29) : (31,28);
 
     # And how far after that are we?
-    my $on = $day - $baseday;
+    my $on = $day - $base[$month - 1];
     $on = $on % 7;
     # And, just to make sure it's positive ...
     $on = ($on + 7) % 7;
@@ -99,6 +74,16 @@ sub isleap  {
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.15  2001/06/06 02:29:14  rbowen
+    Added some more doomsday tests. Removed dayofweek tests that referred
+    to years before the Gregorian calendar. Extended the range of
+    Doomsday.pm indefinately into the future. And a small bug fix in
+    DayOfWeek.pm
+
+    Revision 1.14  2001/06/06 01:41:45  rbowen
+    Made the calculation a little more elegant, if somewhat less
+    informative. Thanks for patch from Jerrad Pierce.
+
     Revision 1.13  2001/05/27 19:34:46  rbowen
     Rearranged argument order. day month year makes more sense.
 
