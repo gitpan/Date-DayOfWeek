@@ -1,8 +1,8 @@
-Date/Doomsday.pm
-Date/DayOfWeek.pm
-Date/DayOfWeek/Birthday.pm
-Date/DayOfWeek/Nails.pm
-Date/DayOfWeek/Sneeze.pm
+lib/Date/Doomsday.pm
+lib/Date/DayOfWeek.pm
+lib/Date/DayOfWeek/Birthday.pm
+lib/Date/DayOfWeek/Nails.pm
+lib/Date/DayOfWeek/Sneeze.pm
 
 MANIFEST
 Makefile.PL

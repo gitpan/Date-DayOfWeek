@@ -1,18 +1,16 @@
-# $Header: /home/cvs/date-doomsday/Date/DayOfWeek.pm,v 1.18 2001/08/03 04:24:39 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek.pm,v 1.19 2001/08/25 21:28:14 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
 use Date::Leapyear qw();
-
 use strict;
-use warnings;
 
 require Exporter;
 use vars qw( @ISA @EXPORT $VERSION );
 @ISA = qw(Exporter);
 
 @EXPORT = qw( dayofweek );
-$VERSION = ( qw'$Revision: 1.18 $' )[1];
+$VERSION = ( qw'$Revision: 1.19 $' )[1];
 
 =head1 NAME
 
@@ -67,6 +65,10 @@ sub dayofweek {
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.19  2001/08/25 21:28:14  rbowen
+    Moved files to lib directory
+    Removed 5.6 dependencies.
+
     Revision 1.18  2001/08/03 04:24:39  rbowen
     Alter locations of modules - moved into Date subdir.
     Added to MANIFEST

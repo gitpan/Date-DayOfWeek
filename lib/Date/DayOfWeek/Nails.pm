@@ -1,17 +1,16 @@
-# $Header: /home/cvs/date-doomsday/Date/DayOfWeek/Nails.pm,v 1.2 2001/06/11 00:03:39 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek/Nails.pm,v 1.3 2001/08/25 21:28:15 rbowen Exp $
 
 package Date::DayOfWeek::Nails;
 use Date::DayOfWeek qw();
 
-require 5.005_62;
 use strict;
-use warnings;
 
 require Exporter;
-our @ISA = qw(Exporter);
+use vars qw(@ISA @EXPORT $VERSION);
+@ISA = qw(Exporter);
 
-our @EXPORT = qw( nails );
-our $VERSION = ( qw'$Revision: 1.2 $' )[1];
+@EXPORT = qw( nails );
+$VERSION = ( qw'$Revision: 1.3 $' )[1];
 
 =head1 NAME
 

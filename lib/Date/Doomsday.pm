@@ -1,14 +1,13 @@
 package Date::Doomsday;
 
-require 5.005_62;
 use strict;
-use warnings;
+use vars qw( @ISA @EXPORT $VERSION );
 
 require Exporter;
-our @ISA = qw(Exporter);
+@ISA = qw(Exporter);
 
-our @EXPORT = qw( doomsday );
-our $VERSION = ( qw'$Revision: 1.9 $' )[1];
+@EXPORT = qw( doomsday );
+$VERSION = ( qw'$Revision: 1.10 $' )[1];
 
 =head1 NAME
 
@@ -62,6 +61,10 @@ sub doomsday {#{{{
 =head1 HISTORY
 
     $Log: Doomsday.pm,v $
+    Revision 1.10  2001/08/25 21:28:14  rbowen
+    Moved files to lib directory
+    Removed 5.6 dependencies.
+
     Revision 1.9  2001/06/10 18:46:03  rbowen
     Moved isleap functionality into Date::Leapyear. Added Birthday.pm and
     Nails.pm as examples of the strange things that people believe - or
