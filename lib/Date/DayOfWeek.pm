@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek.pm,v 1.21 2001/12/22 01:28:54 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek.pm,v 1.22 2003/02/02 13:40:37 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
@@ -10,7 +10,7 @@ use vars qw( @ISA @EXPORT $VERSION );
 @ISA = qw(Exporter);
 
 @EXPORT = qw( dayofweek );
-$VERSION = ( qw'$Revision: 1.21 $' )[1];
+$VERSION = ( qw($Revision: 1.22 $) )[1];
 
 # Docs {{{
 
@@ -88,6 +88,9 @@ Date::Christmas
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.22  2003/02/02 13:40:37  rbowen
+    Change link in documentation. Other minor cosmetic changes.
+
     Revision 1.21  2001/12/22 01:28:54  rbowen
     Documentation updates.
 

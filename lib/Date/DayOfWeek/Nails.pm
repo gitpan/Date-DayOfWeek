@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek/Nails.pm,v 1.4 2001/12/22 01:26:24 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek/Nails.pm,v 1.5 2003/02/02 13:40:38 rbowen Exp $
 
 package Date::DayOfWeek::Nails;
 use Date::DayOfWeek qw();
@@ -10,7 +10,7 @@ use vars qw(@ISA @EXPORT $VERSION);
 @ISA = qw(Exporter);
 
 @EXPORT = qw( nails );
-$VERSION = ( qw'$Revision: 1.4 $' )[1];
+$VERSION = ( qw($Revision: 1.5 $) )[1];
 
 =head1 NAME
 

@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek/Birthday.pm,v 1.3 2001/08/25 21:28:15 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek/Birthday.pm,v 1.4 2003/02/02 13:40:38 rbowen Exp $
 
 package Date::DayOfWeek::Birthday;
 use Date::DayOfWeek qw();
@@ -9,7 +9,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 @EXPORT = qw( birthday );
-$VERSION = ( qw'$Revision: 1.3 $' )[1];
+$VERSION = ( qw($Revision: 1.4 $) )[1];
 
 =head1 NAME
 

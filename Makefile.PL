@@ -6,7 +6,7 @@ WriteMakefile(
     'VERSION_FROM'	=> 'lib/Date/DayOfWeek.pm', # finds $VERSION
     'PREREQ_PM'		=> { 
         Date::Leapyear => 0,
-        Test::More => 0,
+        Test::More => '0.40',
         },
 );
 

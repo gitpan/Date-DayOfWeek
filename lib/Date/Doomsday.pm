@@ -7,7 +7,7 @@ require Exporter;
 @ISA = qw(Exporter);
 
 @EXPORT = qw( doomsday );
-$VERSION = ( qw'$Revision: 1.11 $' )[1];
+$VERSION = ( qw($Revision: 1.12 $) )[1];
 
 =head1 NAME
 
@@ -20,7 +20,7 @@ Date::Doomsday - Determine doomsday for a given year
 
 =head1 VERSION
 
-$Revision: 1.11 $
+$Revision: 1.12 $
 
 =head1 DESCRIPTION
 
@@ -110,7 +110,7 @@ Wednesday. So Christmas (December 25) is a Tuesday.
 For more information about the origins and mathematics surrounding
 doomsday, see the following web sites:
 
-http://www.interlog.com/~r937/doomsday.html
+http://rudy.ca/doomsday.html
 
 http://quasar.as.utexas.edu/BillInfo/doomsday.html
 
