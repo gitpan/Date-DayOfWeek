@@ -46,3 +46,11 @@ ok( dayofweek( 3, 4, 1860 ) == 2,
 # Initial public release of Linux - Saturday
 ok( dayofweek( 5, 10, 1991 ) == 6,
     "Linux was first released on a Saturday");
+
+# Fixed leapyear bug on 9Oct2001
+is( dayofweek( 3, 1, 2000 ), 1, "Jan 3 2000 was a Monday");
+is( dayofweek( 25, 1, 2000 ), 2, "Jan 25 2000 was a Tuesday");
+is( dayofweek( 18, 2, 2000 ), 5, "Feb 18 2000 was a Friday");
+is( dayofweek( 29, 2, 2000 ), 2, "Feb 29 2000 was a Tuesday");
+is( dayofweek( 22, 3, 2000 ), 3, "Mar 22 2000 was a Wednesday");
+

@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek.pm,v 1.19 2001/08/25 21:28:14 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/lib/Date/DayOfWeek.pm,v 1.20 2001/10/10 02:35:07 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
@@ -10,7 +10,7 @@ use vars qw( @ISA @EXPORT $VERSION );
 @ISA = qw(Exporter);
 
 @EXPORT = qw( dayofweek );
-$VERSION = ( qw'$Revision: 1.19 $' )[1];
+$VERSION = ( qw'$Revision: 1.20 $' )[1];
 
 =head1 NAME
 
@@ -50,7 +50,7 @@ sub dayofweek {
     # And when is doomsday this month?
 
     my @base = ( 0, 0, 7, 4, 9, 6, 11, 8, 5, 10, 7, 12 );
-    @base[1,2] = Date::Leapyear::isleap($year) ? (32,29) : (31,28);
+    @base[0,1] = Date::Leapyear::isleap($year) ? (32,29) : (31,28);
 
     # And how far after that are we?
     my $on = $day - $base[$month - 1];
@@ -65,6 +65,9 @@ sub dayofweek {
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.20  2001/10/10 02:35:07  rbowen
+    Bug reported by Francois Claveau.
+
     Revision 1.19  2001/08/25 21:28:14  rbowen
     Moved files to lib directory
     Removed 5.6 dependencies.
