@@ -8,7 +8,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our @EXPORT = qw( doomsday );
-our $VERSION = ( qw'$Revision: 1.8 $' )[1];
+our $VERSION = ( qw'$Revision: 1.9 $' )[1];
 
 =head1 NAME
 
@@ -29,12 +29,14 @@ figure out what day of the week particular events occur in a given year.
     $doomsday = doomsday( 1945 );
 
 Returns the day of the week (in the range 0..6) of doomsday in the particular
-year given.
+year given. If no year is specified, the current year is assumed.
 
 =cut
 
 sub doomsday {#{{{
     my $year = shift;
+
+    $year = ( localtime(time) )[5] unless $year;
 
     if ($year < 1583) {
         warn "The Gregorian calendar did not come into use until 
@@ -60,6 +62,11 @@ sub doomsday {#{{{
 =head1 HISTORY
 
     $Log: Doomsday.pm,v $
+    Revision 1.9  2001/06/10 18:46:03  rbowen
+    Moved isleap functionality into Date::Leapyear. Added Birthday.pm and
+    Nails.pm as examples of the strange things that people believe - or
+    believed a few hundred years ago, with regard to days of the week.
+
     Revision 1.8  2001/06/06 02:29:14  rbowen
     Added some more doomsday tests. Removed dayofweek tests that referred
     to years before the Gregorian calendar. Extended the range of

@@ -1,7 +1,8 @@
-# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.15 2001/06/06 02:29:14 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.16 2001/06/10 18:46:03 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
+use Date::Leapyear qw();
 
 require 5.005_62;
 use strict;
@@ -11,7 +12,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our @EXPORT = qw( dayofweek );
-our $VERSION = ( qw'$Revision: 1.15 $' )[1];
+our $VERSION = ( qw'$Revision: 1.16 $' )[1];
 
 =head1 NAME
 
@@ -49,24 +50,14 @@ sub dayofweek {
     # And when is doomsday this month?
 
     my @base = ( 0, 0, 7, 4, 9, 6, 11, 8, 5, 10, 7, 12 );
-    @base[1,2] = isleap($year) ? (32,29) : (31,28);
+    @base[1,2] = Date::Leapyear::isleap($year) ? (32,29) : (31,28);
 
     # And how far after that are we?
     my $on = $day - $base[$month - 1];
     $on = $on % 7;
-    # And, just to make sure it's positive ...
-    $on = ($on + 7) % 7;
     
     # So, the day of the week should be doomsday, plus however far on we are
     return ($doomsday + $on) % 7;
-}
-
-
-sub isleap  {
-    my ($year) = @_;
-    return 1 if ( ($year % 4 == 0) &&
-        ( ($year % 100) || ($year % 400 == 0) ) );
-    return 0;
 }
 
 1;
@@ -74,6 +65,11 @@ sub isleap  {
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.16  2001/06/10 18:46:03  rbowen
+    Moved isleap functionality into Date::Leapyear. Added Birthday.pm and
+    Nails.pm as examples of the strange things that people believe - or
+    believed a few hundred years ago, with regard to days of the week.
+
     Revision 1.15  2001/06/06 02:29:14  rbowen
     Added some more doomsday tests. Removed dayofweek tests that referred
     to years before the Gregorian calendar. Extended the range of
@@ -82,7 +78,8 @@ sub isleap  {
 
     Revision 1.14  2001/06/06 01:41:45  rbowen
     Made the calculation a little more elegant, if somewhat less
-    informative. Thanks for patch from Jerrad Pierce.
+    informative. Thanks for patch from Jerrad Pierce. Thanks for
+    various suggestions from David Pitts.
 
     Revision 1.13  2001/05/27 19:34:46  rbowen
     Rearranged argument order. day month year makes more sense.

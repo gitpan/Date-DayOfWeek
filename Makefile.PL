@@ -4,5 +4,5 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'		=> 'Date::DayOfWeek',
     'VERSION_FROM'	=> 'DayOfWeek.pm', # finds $VERSION
-    'PREREQ_PM'		=> {}, # e.g., Module::Name => 1.1
+    'PREREQ_PM'		=> { Date::Leapyear => 0 }, # e.g., Module::Name => 1.1
 );
