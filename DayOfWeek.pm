@@ -1,4 +1,4 @@
-# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.12 2001/05/27 03:44:03 rbowen Exp $
+# $Header: /home/cvs/date-doomsday/DayOfWeek.pm,v 1.13 2001/05/27 19:34:46 rbowen Exp $
 
 package Date::DayOfWeek;
 use Date::Doomsday qw();
@@ -11,7 +11,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our @EXPORT = qw( dayofweek );
-our $VERSION = ( qw'$Revision: 1.12 $' )[1];
+our $VERSION = ( qw'$Revision: 1.13 $' )[1];
 
 =head1 NAME
 
@@ -20,7 +20,7 @@ Date::DayOfWeek - Determine the day of the week for any date.
 =head1 SYNOPSIS
 
   use Date::DayOfWeek;
-  $dow = dayofweek( 1971, 10, 25 ); # yyyy, mm, dd
+  $dow = dayofweek( 25, 10, 1971 ); # dd, mm, yyyy
 
 =head1 DESCRIPTION
 
@@ -28,8 +28,8 @@ Based on the Doomsday algorithm of John Conway.
 
 =head1 dayofweek
 
-    $dow = dayofweek( 1971, 10, 25);
-    $dow = dayofweek( 1776, 7, 4);
+    $dow = dayofweek( 25, 10, 1971 );
+    $dow = dayofweek( 4, 7, 1776 );
 
 Returns the day of the week for any date between 1500 and 2699.
 
@@ -41,7 +41,7 @@ sunday, 1 = monday, etc.
 =cut
 
 sub dayofweek {
-    my ($year, $month, $day) = @_;
+    my ($day, $month, $year) = @_;
 
     # When is doomsday this year?
     my $doomsday = Date::Doomsday::doomsday( $year );
@@ -99,6 +99,9 @@ sub isleap  {
 =head1 HISTORY
 
     $Log: DayOfWeek.pm,v $
+    Revision 1.13  2001/05/27 19:34:46  rbowen
+    Rearranged argument order. day month year makes more sense.
+
     Revision 1.12  2001/05/27 03:44:03  rbowen
     Need to mod return value by 7.
 
